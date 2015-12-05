@@ -83,5 +83,8 @@ public class JksLoaderTest {
 
         assert privateKeyEntry.getCertificate().equals(cert);
         assert privateKeyEntry.getPrivateKey().equals(keyPair.getPrivate());
+
+	// Delete test keystore
+        Files.delete(FileSystems.getDefault().getPath(TEST_KEY_STORE_FILENAME));
     }
 }
