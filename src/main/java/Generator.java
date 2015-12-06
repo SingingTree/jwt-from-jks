@@ -1,8 +1,6 @@
 import io.jsonwebtoken.Jwts;
 
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.impl.crypto.MacProvider;
-import io.jsonwebtoken.impl.crypto.RsaProvider;
 
 import java.io.IOException;
 import java.security.KeyStore.PrivateKeyEntry;
@@ -40,6 +38,8 @@ public class Generator {
 
 	private Map<String, Object> getClaims() {
     	ConcurrentHashMap<String, Object> claims = new ConcurrentHashMap<>();
+
+        claims.put("test", "test");
     	
     	return claims;
     }

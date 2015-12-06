@@ -8,6 +8,7 @@ import java.security.cert.*;
 import java.util.Date;
 
 public class TestUtils {
+    public static final String TEST_KEY_STORE_FILENAME = "testKeyStore.jks";
     public static final String TEST_ALIAS = "testAlias";
     public static final String TEST_PASSWORD = "hunter2";
 

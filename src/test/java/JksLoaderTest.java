@@ -10,8 +10,6 @@ import java.security.*;
 import java.security.cert.*;
 
 public class JksLoaderTest {
-    public static final String TEST_KEY_STORE_FILENAME = "testKeyStore.jks";
-
     @Rule
     public TemporaryFolder testFolder = new TemporaryFolder();
 
@@ -21,11 +19,12 @@ public class JksLoaderTest {
 
         KeyPair keyPair = RsaProvider.generateKeyPair(2048);
         X509Certificate cert = utils.generateCertificate("CN=Test, L=London, C=GB", keyPair, 365, "SHA256withRSA");
-        File testKeyStore = testFolder.newFile(TEST_KEY_STORE_FILENAME);
+        File testKeyStore = testFolder.newFile(TestUtils.TEST_KEY_STORE_FILENAME);
         utils.createTestKeyStore(
                 new FileOutputStream(testKeyStore),
                 keyPair.getPrivate(),
-                cert);
+                cert
+        );
 
         JksLoader loader = new JksLoader();
 
